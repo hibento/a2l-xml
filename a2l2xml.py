@@ -377,8 +377,7 @@ while pos < length:
         pass
 
     else:
-        print "#" + Token + "# ??"
+        print("#" + Token + "# ??")
 
 s = etree.tostring(root, pretty_print=True)
 outputFile.write(s)
-
