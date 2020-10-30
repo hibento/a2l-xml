@@ -29,18 +29,16 @@
 
 from lxml import etree
 import sys
-import chardet
 
 if len(sys.argv) < 3:
     print("Syntax: %s infile.A2L outfile.XML" % sys.argv[0])
     exit()
 
-inputFile = open(sys.argv[1],"r")
-outputFile = open(sys.argv[2],"w")
-inputBufRaw = inputFile.read()
-encoding = chardet.detect(inputBufRaw)['encoding']
-inputBuf = inputBufRaw.replace('\n', '').decode(encoding)
-
+inputFile = open(sys.argv[1],"rb")
+outputFile = open(sys.argv[2],"wb")
+inputBufRaw = inputFile.read().decode(errors='replace', encoding='utf-8')
+inputBuf = inputBufRaw.replace('\n', '')
+length = (inputBuf)
 length = len(inputBuf)
 
 types = ['int','uint','uint64','double','float','long','ulong','uchar','char']
